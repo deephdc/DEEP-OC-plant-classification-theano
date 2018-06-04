@@ -24,6 +24,8 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
 RUN pip install --upgrade https://github.com/Theano/Theano/archive/master.zip
 RUN pip install --upgrade https://github.com/Lasagne/Lasagne/archive/master.zip
 
+WORKDIR /srv
+
 RUN git clone https://github.com/indigo-dc/plant-classification-theano -b package && \
     cd plant-classification-theano && \
     pip install -e . && \
@@ -34,9 +36,6 @@ RUN git clone https://github.com/IFCA/deepaas && \
     cd deepaas && \
     pip install -U . && \
     cd ..
-
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
-        python-tk
 
 ENV SWIFT_CONTAINER https://cephrgw01.ifca.es:8080/swift/v1/Plants/
 ENV THEANO_TR_WEIGHTS resnet50_6182classes_100epochs.npz
