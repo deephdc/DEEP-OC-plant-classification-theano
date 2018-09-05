@@ -32,7 +32,7 @@ RUN git clone https://github.com/indigo-dc/plant-classification-theano -b packag
     cd ..
 
 # TODO(aloga): use PyPi whenever possible
-RUN git clone https://github.com/IFCA/deepaas && \
+RUN git clone https://github.com/indigo-dc/deepaas && \
     cd deepaas && \
     pip install -U . && \
     cd ..
