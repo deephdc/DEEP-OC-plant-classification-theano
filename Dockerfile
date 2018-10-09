@@ -58,4 +58,4 @@ RUN curl -o ./plant-classification-theano/data/data_splits/synsets_binomial.txt 
 
 EXPOSE 5000
 
-CMD deepaas-run
+CMD deepaas-run --listen-ip 0.0.0.0
