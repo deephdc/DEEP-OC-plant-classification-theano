@@ -1,7 +1,7 @@
 FROM ubuntu:18.04
-LABEL maintainer="Alvaro Lopez Garcia <aloga@ifca.unican.es>"
+LABEL maintainer="Lara Lloret Iglesias <lloret@ifca.unican.es>"
 LABEL version="0.1"
-LABEL description="DEEP as a Service Generic Container"
+LABEL description="DEEP as a Service Container: Plant Classification"
 
 RUN apt-get update && \
     apt-get upgrade -y
@@ -49,13 +49,24 @@ RUN curl -o ./plant-classification-theano/plant_classification/training_weights/
 RUN curl -o ./plant-classification-theano/plant_classification/training_info/${THEANO_TR_JSON} \
     ${SWIFT_CONTAINER}${THEANO_TR_JSON}
 
-RUN curl -o ./plant-classification-theano/data/data_splits/synsets_binomial.txt \
+RUN curl -o ./plant-classification-theano/data/data_splits/synsets.txt \
     ${SWIFT_CONTAINER}${SYNSETS}
 
 #RUN curl -o ./webpage/model_files/data/info.txt \
 #    ${SWIFT_CONTAINER}${INFO}
 
+# install rclone
+RUN apt-get install -y wget nano && \
+    wget https://downloads.rclone.org/rclone-current-linux-amd64.deb && \
+    dpkg -i rclone-current-linux-amd64.deb && \
+    apt install -f && \
+    rm rclone-current-linux-amd64.deb && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/* && \
+    rm -rf /root/.cache/pip/* && \
+    rm -rf /tmp/*
 
 EXPOSE 5000
 
 CMD deepaas-run --listen-ip 0.0.0.0
+
