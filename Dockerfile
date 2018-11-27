@@ -26,8 +26,8 @@ RUN pip install --upgrade https://github.com/Lasagne/Lasagne/archive/master.zip
 
 WORKDIR /srv
 
-RUN git clone https://github.com/indigo-dc/plant-classification-th && \
-    cd plant-classification-th && \
+RUN git clone https://github.com/indigo-dc/plant-classification-theano -b package && \
+    cd plant-classification-theano && \
     pip install -e . && \
     cd ..
 
@@ -43,13 +43,13 @@ ENV THEANO_TR_JSON resnet50_6182classes_100epochs.json
 ENV SYNSETS synsets_binomial.txt
 ENV INFO info.txt
 
-RUN curl -o ./plant-classification-th/plant_classification/training_weights/${THEANO_TR_WEIGHTS} \
+RUN curl -o ./plant-classification-theano/plant_classification/training_weights/${THEANO_TR_WEIGHTS} \
     ${SWIFT_CONTAINER}${THEANO_TR_WEIGHTS}
 
-RUN curl -o ./plant-classification-th/plant_classification/training_info/${THEANO_TR_JSON} \
+RUN curl -o ./plant-classification-theano/plant_classification/training_info/${THEANO_TR_JSON} \
     ${SWIFT_CONTAINER}${THEANO_TR_JSON}
 
-RUN curl -o ./plant-classification-th/data/data_splits/synsets.txt \
+RUN curl -o ./plant-classification-theano/data/data_splits/synsets.txt \
     ${SWIFT_CONTAINER}${SYNSETS}
 
 #RUN curl -o ./webpage/model_files/data/info.txt \
