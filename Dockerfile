@@ -31,11 +31,8 @@ RUN git clone https://github.com/indigo-dc/plant-classification-theano -b packag
     pip install -e . && \
     cd ..
 
-# TODO(aloga): use PyPi whenever possible
-RUN git clone https://github.com/indigo-dc/deepaas && \
-    cd deepaas && \
-    pip install -U . && \
-    cd ..
+#Install deepaas
+RUN pip install deepaas
 
 ENV SWIFT_CONTAINER https://cephrgw01.ifca.es:8080/swift/v1/Plants/
 ENV THEANO_TR_WEIGHTS resnet50_6182classes_100epochs.npz
