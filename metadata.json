@@ -1,0 +1,62 @@
+{
+    "title": "DEEP OC Plant Classification (Theano)",
+    "summary": "A trained ResNet50 on Theano to classify European plants.",
+    "description": [
+        "**This service is deprecated. Please refer to the [newer Tensorflow version](deep-oc-plants-classification.html).**\n",
+
+        "The deep learning revolution has brought significant advances in a number of fields [1], primarily linked to",
+        "image and speech recognition. The standardization of image classification tasks like the [ImageNet Large Scale",
+        "Visual Recognition Challenge](http://www.image-net.org/challenges/LSVRC/) [2] has resulted in a reliable way to",
+        "compare top performing architectures.\n",
+
+        "The use of deep learning for plant classification is not novel [3, 4] but has mainly focused in leaves and has",
+        "been restricted to a limited amount of species, therefore making it of limited use for large-scale biodiversity",
+        "monitoring purposes.\n",
+
+        "This Docker container contains a trained Convolutional Neural network optimized for plant identification using",
+        "images. The architecture used is an ResNet50 [5] network using Lasagne on top of Theano.. A detailed article",
+        "about this network and the results obtained with it can be found in [6].\n",
+
+        "As training dataset it has been used the great collection of images which are available in PlantNet under a ",
+        "Creative-Common AttributionShareAlike 2.0 license. It consists of around 250K images belonging to more than 6K",
+        "plant species of Western Europe. These species are distributed in 1500 genera and 200 families.\n",
+
+        "<img class='fit', src='https://raw.githubusercontent.com/deephdc/DEEP-OC-plant-classification-theano/master/images/plants.png'/>\n",
+        
+        "**References**\n",
+        "[1]: Yann LeCun, Yoshua Bengio, and Geofrey Hinton. [Deep learning](https://www.cs.toronto.edu/~hinton/absps/NatureDeepReview.pdf). Nature, 521(7553):436-444, May 2015.\n",
+        "[2]: Olga Russakovsky et al. [ImageNet Large Scale Visual Recognition Challenge](https://arxiv.org/abs/1409.0575). International Journal of Computer Vision (IJCV), 115(3):211-252, 2015.\n",
+        "[3]: Sue Han Lee, Chee Seng Chan, Paul Wilkin, and Paolo Remagnino. [Deep-plant: Plant identification with convolutional neural networks](https://arxiv.org/abs/1506.08425), 2015.\n",
+        "[4]: Mads Dyrmann, Henrik Karstoft, and Henrik Skov Midtiby. [Plant species classification using deep convolutional neural network.](https://www.sciencedirect.com/science/article/pii/S1537511016301465) Biosystems Engineering, 151:72-80, 2016.\n",
+        "[5]: He, K., Zhang, X., Ren, S., & Sun, J. (2016). Deep residual learning for image recognition. In Proceedings of the IEEE conference on computer vision and pattern recognition (pp. 770-778)\n",
+        "[6]: Heredia, Ignacio. [Large-scale plant classification with deep neural networks.](https://arxiv.org/abs/1706.03736) Proceedings of the Computing Frontiers Conference. ACM, 2017."
+	],
+    "keywords": [
+        "deprecated/services", "library/theano", "library/lasagne", "docker"
+    ],
+    "license": "Apache 2.0",
+    "cite_url": "https://doi.org/10.1145/3075564.3075590",
+    "date_creation": "2019-01-01",
+    "sources": {
+		"dockerfile_repo": "https://github.com/deephdc/DEEP-OC-plant-classification-theano",
+		"docker_registry_repo": "deephdc/deep-oc-plant-classification-theano",
+        "pre_trained_weights": "https://cephrgw01.ifca.es:8080/swift/v1/Plants/"
+	},
+    "continuous_integration": {
+        "build_status_badge": "https://jenkins.indigo-datacloud.eu/buildStatus/icon?job=Pipeline-as-code/DEEP-OC-org/DEEP-OC-plant-classification-theano/master",
+        "build_status_url": "https://jenkins.indigo-datacloud.eu/job/Pipeline-as-code/job/DEEP-OC-org/job/DEEP-OC-plant-classification-theano/job/master"
+    },
+    "tosca": [
+        {
+            "title": "Mesos (CPU)",
+            "url": "https://raw.githubusercontent.com/indigo-dc/tosca-templates/master/deep-oc/deep-oc-plant-classification-theano-mesos-cpu.yml",
+            "inputs": [
+                "rclone_conf",
+                "rclone_url",
+                "rclone_vendor",
+                "rclone_user",
+                "rclone_pass"
+            ]
+        }
+    ]
+}
