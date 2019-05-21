@@ -1,8 +1,12 @@
+<div align="center">
+<img src="https://marketplace.deep-hybrid-datacloud.eu/images/logo-deep.png" alt="logo" width="300"/>
+</div>
+
 # DEEP as a Service container for plant classification
 
-![DEEP-Hybrid-DataCloud logo](https://deep-hybrid-datacloud.eu/wp-content/uploads/2018/01/logo.png)
+[![Build Status](https://jenkins.indigo-datacloud.eu/buildStatus/icon?job=Pipeline-as-code/DEEP-OC-org/DEEP-OC-plant-classification-theano/master)](https://jenkins.indigo-datacloud.eu/job/Pipeline-as-code/job/DEEP-OC-org/job/DEEP-OC-plant-classification-theano/job/master)
 
-[![Build Status](https://jenkins.indigo-datacloud.eu:8080/buildStatus/icon?job=Pipeline-as-code/DEEP-OC-org/DEEP-OC-plant-classification-theano/master)](https://jenkins.indigo-datacloud.eu:8080/job/Pipeline-as-code/job/DEEP-OC-org/job/DEEP-OC-plant-classification-theano/job/master)
+**This service is deprecated. Please refer to the [newer Tensorflow version](https://github.com/deephdc/DEEP-OC-plants-classification-tf).**
 
 This is a container that will run the DEEP as a Service API component,
 with an application to classify plant images. This module runs in Lasagne on top of Theano and uses a convolutional neural network (ResNet50) as model.
