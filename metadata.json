@@ -2,7 +2,7 @@
     "title": "DEEP OC Plant Classification (Theano)",
     "summary": "A trained ResNet50 on Theano to classify European plants.",
     "description": [
-        "**This service is deprecated. Please refer to the [newer Tensorflow version](./deep-oc-plants-classification.html).**\n",
+        "**This service is deprecated. Please refer to the [newer Tensorflow version](deep-oc-plants-classification.html).**\n",
 
         "The deep learning revolution has brought significant advances in a number of fields [1], primarily linked to",
         "image and speech recognition. The standardization of image classification tasks like the [ImageNet Large Scale",
