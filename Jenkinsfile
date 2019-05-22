@@ -14,13 +14,10 @@ pipeline {
     stages {
         stage('DockerHub delivery') {
             when {
-                allOf {
-                    changeset 'Dockerfile'
-                    anyOf {
-                        branch 'master'
-                        branch 'test'
-                        buildingTag()
-                    }
+                anyOf {
+                    branch 'master'
+                    branch 'test'
+                    buildingTag()
                 }
             }
             steps{
